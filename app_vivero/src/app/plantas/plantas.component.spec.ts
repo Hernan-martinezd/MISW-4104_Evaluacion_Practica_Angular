@@ -28,26 +28,26 @@ describe('BookListComponent', () => {
    fixture = TestBed.createComponent(PlantaComponent);
    component = fixture.componentInstance;
 
-   component.plantas = [
-     new Planta(faker.person.firstName(), faker.person.firstName(), faker.person.firstName())
-   ]
-
-   fixture.detectChanges();
-   debug = fixture.debugElement;
+    for(let i = 0; i < 3; i++) {
+    const planta = new Planta(
+      faker.datatype.number(),
+      faker.lorem.sentence(),
+      faker.lorem.sentence(),
+      faker.lorem.sentence(),
+     
+    );
+    component.plantas.push(planta);
+  }
+  fixture.detectChanges();
+  debug = fixture.debugElement;
+   
  });
 
  it('should create', () => {
-   expect(component).toBeTruthy();
- });
-
- it("Component has a table", () => {
-   expect(debug.query(By.css("tbody")).childNodes.length).toBeGreaterThan(0);
- });
-
- it('should have an dd element ', () => {
-   const dd = debug.query(By.css('dd'));
-   const content: HTMLElement = dd.nativeElement;
-   expect(content.textContent).toEqual(component.plantas[0].name)
- });
+    expect(component).toBeTruthy();
+  });
+  it('should have 3 <tr> elements', () => {
+    expect(debug.queryAll(By.css('tr'))).toHaveSize(4)
+  });
 
 });
