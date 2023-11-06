@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Vivero El Otoño</title>
+</head>
+<body>
+  <header>
+    <h1>Vivero El Otoño</h1>
+  </header>
+
+  <div class="content">
+    <img src="../assets/image.png" alt="Imagen del vivero" />
+    <table class="table">
+
+      <thead>
+        <tr class="table-dark">
+          <th scope="col">#</th>
+          <th scope="col">Nombre Común</th>
+          <th scope="col">Tipo</th>
+          <th scope="col">Clima</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let planta of plantas">
+          <td>{{ planta.id }}</td>
+          <td>{{ planta.nombre_comun }}</td>
+          <td>{{ planta.tipo }}</td>
+          <td>{{ planta.clima }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="summary">
+    <p>Total de plantas de interior: {{ totalInterior }}</p>
+    <p>Total de plantas de exterior: {{ totalExterior }}</p>
+  </div>
+
+  <footer class="text-center">
+    
+      Contáctanos:
+      Dirección: Dirección del vivero
+      Teléfono: +1 234 567 890
+      Correo electrónico: info@viveroelotono.com
+    
+  </footer>
+</body>
+</html>
